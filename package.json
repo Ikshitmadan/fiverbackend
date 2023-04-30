@@ -12,5 +12,12 @@
     "moongoose": "^0.0.5",
     "nodemon": "^2.0.22",
     "stripe": "^12.1.1"
+  },
+  "scripts": {
+    "start": "node server.js"
+
   }
+
+  
+
 }

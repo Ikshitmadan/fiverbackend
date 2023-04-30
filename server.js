@@ -11,6 +11,7 @@ const ReviewRouter = require('./router/review.route');
 const OrderRouter = require('./router/order.route');
 const ConverationRouter = require('./router/conversation.route');
 const MessageRouter = require('./router/message.route');
+const port=process.env.port||8800
 dotenv.config()
 const connect = async () => {
     try {
@@ -39,7 +40,7 @@ app.use((err,req,res,next)=>{
     return res.status(errorStatus).send(errorMessage);
 
 })
-app.listen(8800,()=>{
+app.listen(port,()=>{
     connect()
     console.log("backend is running");
 })
