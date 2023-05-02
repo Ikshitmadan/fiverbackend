@@ -20,6 +20,8 @@ module.exports.register =async function  register(req,res) {
 module.exports.login= async function  login(req,res,next) {
     console.log("inside login");
 
+
+
     try{
         const {username}=req.body;
 
@@ -41,10 +43,14 @@ module.exports.login= async function  login(req,res,next) {
             },
             process.env.JWT_KEY
           );
-      
+
+
+          console.log("setted token");
+       console.log(token,"token");
           const { password, ...info } = user._doc;
-          res
-            .cookie("accesstoken", token, {
+
+
+          res.cookie("accesstoken", token, {
               httpOnly: true,
               expires: new Date(Date.now() + 365 * 24 * 60 * 60 * 1000)
             })
