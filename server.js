@@ -12,6 +12,7 @@ const OrderRouter = require('./router/order.route');
 const ConverationRouter = require('./router/conversation.route');
 const MessageRouter = require('./router/message.route');
 const port=process.env.port||8800
+const BASE_URL=process.env.BASE_URL;
 dotenv.config()
 const connect = async () => {
     try {
@@ -21,7 +22,7 @@ const connect = async () => {
       console.log(error);
     }
   };
-app.use(cors({origin:"http://localhost:5173",credentials:true}))
+app.use(cors({origin:"https://fiver-oxfq.onrender.com",credentials:true}))
 app.use(express.json())
 app.use(cookieParser());
 app.use("/api/auth",authRouter )
