@@ -24,19 +24,13 @@ const connect = async () => {
   };
 app.use(cors({origin:"https://fiver-ui.onrender.com",credentials:true}))
 
-app.options('*', cors({
-  origin: 'https://fiver-ui.onrender.com',
-  credentials: true,
-  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-  preflightContinue: false,
-  optionsSuccessStatus: 204
-}));
-
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "https://fiver-ui.onrender.com");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   next();
 });
+
+
 app.use(express.json())
 app.use(cookieParser());
 app.use("/api/auth",authRouter )
