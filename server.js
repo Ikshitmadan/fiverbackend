@@ -22,8 +22,7 @@ const connect = async () => {
       console.log(error);
     }
   };
-app.use(cors({origin:"https://fiver-ui.onrender.com",credentials:true}))
-
+app.cors()
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "https://fiver-ui.onrender.com");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
