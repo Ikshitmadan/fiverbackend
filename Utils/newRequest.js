@@ -1,5 +1,5 @@
 import axios from 'axios'
 export const newRequest=axios.create({
-    baseURL:"https://fiver-oxfq.onrender.com/api/",
+    baseURL:"https://mern-stack-hijh.onrender.com/api/",
     withCredentials:true
 })
