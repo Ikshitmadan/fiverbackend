@@ -3,8 +3,9 @@ const { createError } = require('../Utils/CreateError');
 
 module.exports.verifytoken=function async(req,res,next){
     console.log("verify");
-    const authHeader=req.headers['Authorization'];
-    const tokenId= authHeader&& req.headers["Authorization"];
+    const authHeader = req.headers.token;
+    console.log(authHeader,'HEADER');
+    const tokenId= authHeader&&authHeader.split("")[1];
     
     console.log(tokenId,"hey");
     if(!tokenId){

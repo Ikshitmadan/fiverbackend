@@ -41,7 +41,8 @@ module.exports.login= async function  login(req,res,next) {
               id: user._id,
               isSeller: user.isSeller,
             },
-            process.env.JWT_KEY
+            process.env.JWT_KEY,
+            {expiresIn:"3d"}
           );
                
 
@@ -49,7 +50,8 @@ module.exports.login= async function  login(req,res,next) {
           console.log("setted token");
        console.log(token,"token");
           const { password, ...info } = user._doc;
-          res.header('Authorization', token).json({ message: 'Login successful' })
+          res.status(200).json({...info, token});  
+              console.log(token);
 
         //   res.cookie("accesstoken", token, {
         //       httpOnly: true,
