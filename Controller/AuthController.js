@@ -49,8 +49,7 @@ module.exports.login= async function  login(req,res,next) {
           console.log("setted token");
        console.log(token,"token");
           const { password, ...info } = user._doc;
-             res.json({accessToken:token})
-
+          res.header('Authorization', token).json({ message: 'Login successful' })
 
         //   res.cookie("accesstoken", token, {
         //       httpOnly: true,
