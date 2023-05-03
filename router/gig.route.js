@@ -6,6 +6,6 @@ const GigRouter=express.Router();
 GigRouter.post('/',verifytoken,createGig);
 GigRouter.delete('/:id',verifytoken,deleteGig);
 GigRouter.get('/single/:id',verifytoken,getGig);
-GigRouter.get('/',getGigs);
+GigRouter.get('/',verifytoken,getGigs);
 
 module.exports=GigRouter;

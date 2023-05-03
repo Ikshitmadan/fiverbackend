@@ -4,8 +4,8 @@ const { createError } = require('../Utils/CreateError');
 module.exports.verifytoken=function async(req,res,next){
     console.log("verify");
     const authHeader = req.headers.token;
-    console.log(authHeader,'HEADER');
-    const tokenId= authHeader&&authHeader.split("")[1];
+    const tokenId= authHeader&&authHeader.split(" ")[1];
+    
     
     console.log(tokenId,"hey");
     if(!tokenId){
@@ -18,7 +18,8 @@ module.exports.verifytoken=function async(req,res,next){
             console.log(err);
             res.status(401).send("token is not valid");
         }
-        req.userId=payload.id;
+        console.log(payload,"payload");
+        req.userId=payload._id;
         req.isSeller=payload.isSeller;
         next()
      
