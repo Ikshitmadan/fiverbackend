@@ -5,6 +5,7 @@ const stripe = require("stripe")('sk_test_51MoMDSSIl4VwGEZmz84GWLn0AqNhrvdxTjTil
 
 module.exports.getOrders=async function(req,res,next){
 try{
+  console.log(req.userId," user id");
 const orders=await order.find
 ({
     ...(req.isSeller?{sellerId:req.userId}:{buyerId:req.userId}),isCompleted:true

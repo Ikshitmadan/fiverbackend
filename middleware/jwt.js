@@ -18,8 +18,8 @@ module.exports.verifytoken=function async(req,res,next){
             console.log(err);
             res.status(401).send("token is not valid");
         }
-        console.log(payload,"payload");
-        req.userId=payload._id;
+        console.log(payload.id,"payload id inside middleware");
+        req.userId=payload.id;
         req.isSeller=payload.isSeller;
         next()
      
