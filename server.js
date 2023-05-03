@@ -31,7 +31,7 @@ const connect = async () => {
     res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
     next();
   });
-  
+  app.use(cors({origin:"https://fiver-ui.onrender.com",credentials:true}))
 
 
 
